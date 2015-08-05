@@ -38,10 +38,14 @@ func TestCenter(t *testing.T) {
 
 		solution, err := Solve(p1, p2, p3)
 		So(err, ShouldBeNil)
+		So(len(solution), ShouldEqual, 3)
 
-		point := solution.First()
-
-		So(point.X, ShouldEqual, 10)
-		So(point.Y, ShouldEqual, 10)
+		So(solution.First(), ShouldResemble, solution[0])
+		So(solution[0].X, ShouldEqual, 10)
+		So(solution[0].Y, ShouldEqual, 10)
+		So(solution[1].X, ShouldEqual, 0)
+		So(solution[1].Y, ShouldEqual, 20)
+		So(solution[2].X, ShouldEqual, 0)
+		So(solution[2].Y, ShouldEqual, 20)
 	})
 }
